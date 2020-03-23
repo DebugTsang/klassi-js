@@ -113,7 +113,7 @@ let settings = {
   aces: program.aces,
   projectRoot: program.context,
   reportName: program.reportName,
-  browserName: program.browsers,
+  BROWSER_NAME: program.browsers,
   disableReport: program.disableReport,
   updateBaselineImage: program.updateBaselineImage,
   defaultTimeout: '300000 * 1000', // 5 mins
@@ -172,7 +172,7 @@ let paths = {
 /**
  * expose settings and paths for global use
  * */
-global.browserName = program.browsers;
+global.BROWSER_NAME = program.browsers;
 global.settings = settings;
 global.paths = paths;
 
@@ -258,7 +258,7 @@ process.argv.push(
   cp_path,
   '-f',
   'json:' +
-    path.resolve(global.paths.reports, browserName + '-' + dateTime + '.json')
+    path.resolve(global.paths.reports, projectName + '-' + BROWSER_NAME + '.' + dateTime + '.json')
 ); // getting the full JSON file report name
 
 /**

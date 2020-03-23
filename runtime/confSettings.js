@@ -37,7 +37,7 @@ module.exports = {
      * @param seconds
      * @type {number}
      */
-    let timeout = seconds ? seconds * 1000 : cucumberTimeout;
+    let timeout = seconds ? seconds * 1000 : defaultTimeout;
     /**
      * load the url and wait for it to complete
      */

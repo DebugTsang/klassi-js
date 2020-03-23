@@ -30,8 +30,9 @@ reports
 artifacts
 coverage
 testDir
-projects/shared-objects/docs/userAgent.txt
 
+# exclude file
+projects/shared-objects/docs/userAgent.txt
 
 klassi-browserstack.js
 # IntelliJ project files

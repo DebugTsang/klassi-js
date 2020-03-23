@@ -91,7 +91,7 @@ let browser = {};
  * @returns {{}}
  */
 async function getDriverInstance() {
-  let browsers = global.settings.browserName;
+  let browsers = global.settings.BROWSER_NAME;
   let options = {};
   if (remoteService && remoteService.type === 'browserstack') {
     let configType = global.settings.remoteConfig;
@@ -267,9 +267,10 @@ this.World = World;
 const { setDefaultTimeout } = require('cucumber');
 
 // Add timeout based on env var.
-const timeout = process.env.CUCUMBER_TIMEOUT || 120000;
-setDefaultTimeout(timeout);
+const defaultTimeout = process.env.CUCUMBER_TIMEOUT || 120000;
+setDefaultTimeout(defaultTimeout);
 
+global.defaultTimeout = defaultTimeout;
 /**
  * start recording of the Test run time
  */
@@ -305,11 +306,12 @@ AfterAll(function() {
   // TODO: create and add a method here to append the "metadata information" to the .json file before the reporter
   //  ingests it
 
-  // fs.readFile( path.resolve(global.reports, browserName + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', function (data) {
+  // fs.readFile( path.resolve(global.reports, BROWSER_NAME + ' ' + projectName + ' ' + settings.reportName + '-' +
+  // dateTime + '.json', function (data) {
   //   let metaDataFile = require('./reporter/metaData');
   //   let json = JSON.parse(data);
   //   json.push(data + metaDataFile);
-  //   fs.writeFile(path.resolve(global.reports, browserName + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', JSON.stringify(json), function (err) {
+  //   fs.writeFile(path.resolve(global.reports, BROWSER_NAME + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', JSON.stringify(json), function (err) {
   //     if (err) throw err;
   //     console.log('The "data to append" was appended to the file!!');
   //   })
@@ -328,12 +330,12 @@ AfterAll(function() {
 // AfterAll(function(){
 //   // TODO: create and add a method here to append the "metadata information" to the .json file before the reporter
 //   //  ingests it
-//   // fs.readFile(global.paths.reports, browserName + '-' + dateTime + '.json', function (data) {
-//   // // fs.readFile( path.resolve(global.reports, browserName + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', function (data) {
+//   // fs.readFile(global.paths.reports, BROWSER_NAME + '-' + dateTime + '.json', function (data) {
+//   // // fs.readFile( path.resolve(global.reports, BROWSER_NAME + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', function (data) {
 //   //   let metaDataFile = require('./reporter/metaData');
 //   //   let json = JSON.parse(data);
 //   //   json.push(data + metaDataFile);
-//   //   fs.writeFile(path.resolve(global.reports, browserName + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', JSON.stringify(json), function (err) {
+//   //   fs.writeFile(path.resolve(global.reports, BROWSER_NAME + ' ' + projectName + ' ' + settings.reportName + '-' + dateTime + '.json', JSON.stringify(json), function (err) {
 //   //     if (err) throw err;
 //   //     console.log('The "data to append" was appended to the file!!');
 //   //   })

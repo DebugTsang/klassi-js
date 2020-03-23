@@ -69,7 +69,8 @@ module.exports = {
         jsonDir: path.resolve(global.paths.reports),
 
         reportPath: path.resolve(
-          global.paths.reports, browserName + '-' + date
+          // global.paths.reports, projectName + '-' + BROWSER_NAME + '-' + date
+          global.paths.reports, projectName + '.' + date
         ),
         // saveCollectedJSON: true,
 
