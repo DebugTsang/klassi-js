@@ -76,7 +76,7 @@ module.exports = {
 
         disableLog: false,
         pageTitle: 'Automation Report',
-        reportName: 'Test Automation Report' + '-' + date, // TODO: make reportName global
+        reportName: projectName + 'Test Automation Report' + '-' + date, // TODO: make reportName global
         openReportInBrowser: !global.settings.disableReport,
 
         customMetadata: true,

@@ -50,7 +50,7 @@ module.exports = {
       to: devTeam,
       from: 'Klassi-QATEST <email@email.com>',
       // subject: projectReportName + ' ' + BROWSER_NAME + ' ' + global.reportName + '-' + date,
-      subject: projectName + ' ' + BROWSER_NAME + ' ' + global.reportName + '-' + date,
+      subject: global.projectReportName + ' ' + global.reportName + '-' + date,
       alternative: true,
       // TODO: add code for zipping report files for emailing.
       // attachments: [

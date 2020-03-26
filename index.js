@@ -137,8 +137,9 @@ if (program.aces) {
   envConfig = require('./projects/' + projectName + '/configs/envConfig');
 }
 let reportName = envConfig.reportName;
-let projectReportName = envConfig.projectReportName;
 global.reportName = process.env.REPORT_NAME || reportName;
+// global.projectReportName = envConfig.projectReportName;
+let projectReportName = envConfig.projectReportName;
 global.projectReportName = process.env.PROJECT_REPORT_NAME || projectReportName;
 
 if (program.remoteService && program.extraSettings) {
